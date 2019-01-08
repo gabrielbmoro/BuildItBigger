@@ -6,9 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 import com.example.jokesjavalibrary.*;
 
+import com.example.showjokeandroidlibrary.ShowJokeActivity;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
@@ -39,7 +39,7 @@ public class MainActivityFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String joke = new ProvidesJokes().getJoke();
-                Toast.makeText(getActivity(), joke, Toast.LENGTH_LONG).show();
+                ShowJokeActivity.startActivity(v.getContext(), joke);
             }
         });
         return root;
