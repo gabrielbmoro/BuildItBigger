@@ -5,6 +5,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
+import com.example.jokesjavalibrary.*;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -15,8 +18,7 @@ import com.google.android.gms.ads.AdView;
  */
 public class MainActivityFragment extends Fragment {
 
-    public MainActivityFragment() {
-    }
+    public MainActivityFragment() { }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,6 +33,15 @@ public class MainActivityFragment extends Fragment {
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
         mAdView.loadAd(adRequest);
+
+        Button btnTellJoke = root.findViewById(R.id.btnTellJoke);
+        btnTellJoke.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String joke = new ProvidesJokes().getJoke();
+                Toast.makeText(getActivity(), joke, Toast.LENGTH_LONG).show();
+            }
+        });
         return root;
     }
 }
