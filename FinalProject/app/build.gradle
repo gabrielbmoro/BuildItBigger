@@ -50,4 +50,17 @@ dependencies {
     })
 
     testImplementation 'junit:junit:4.12'
+    
+    // Roboeletric
+    testImplementation 'org.robolectric:robolectric:3.8'
+    testImplementation "com.android.support.test:runner:1.0.2"
+    testImplementation "com.android.support.test:rules:1.0.2"
+
+    // Truth
+    androidTestImplementation 'com.google.truth:truth:0.40'
+    testImplementation 'com.google.truth:truth:0.40'
+
+    // Mockito
+    testImplementation 'org.mockito:mockito-core:2.19.1'
+    androidTestImplementation 'org.mockito:mockito-android:2.19.1'
 }
