@@ -9,8 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.jokesjavalibrary.*;
-
 import com.example.showjokeandroidlibrary.ShowJokeActivity;
 
 
@@ -32,8 +30,6 @@ public class MainActivityFragment extends Fragment {
         btnTellJoke.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String joke = new ProvidesJokes().getJoke();
-
                 EndpointsAsyncTask task = new EndpointsAsyncTask();
                 task.setContract(new EndpointsAsyncTask.CallbackAsyncTask() {
                     @Override
@@ -41,7 +37,7 @@ public class MainActivityFragment extends Fragment {
                         ShowJokeActivity.startActivity(getActivity(), result);
                     }
                 });
-                task.execute(new Pair<Context, String>(getActivity(), joke));
+                task.execute();
             }
         });
 
