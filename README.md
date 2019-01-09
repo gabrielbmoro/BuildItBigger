@@ -1,7 +1,6 @@
-# buildItBigger_udacitycourse
-Android developer - Nanodegree program
-
 # Build it Bigger - Udacity Course
+
+Android developer - Nanodegree program
 
 ### Implementation
 
