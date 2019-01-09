@@ -13,7 +13,6 @@ buildscript {
 
 android {
     compileSdkVersion 28
-//    buildToolsVersion "26.0.3"
 
     defaultConfig {
         applicationId "com.udacity.gradle.builditbigger"
@@ -28,10 +27,24 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    flavorDimensions "version"
+
+    productFlavors{
+        free {
+            dimension "version"
+            applicationIdSuffix ".free"
+        }
+        paid {
+            dimension "version"
+            applicationIdSuffix ".paid"
+        }
+    }
+
 }
 
 dependencies {
@@ -50,7 +63,7 @@ dependencies {
     })
 
     testImplementation 'junit:junit:4.12'
-    
+
     // Roboeletric
     testImplementation 'org.robolectric:robolectric:3.8'
     testImplementation "com.android.support.test:runner:1.0.2"
