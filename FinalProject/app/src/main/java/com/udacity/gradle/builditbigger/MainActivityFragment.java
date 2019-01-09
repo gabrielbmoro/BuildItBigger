@@ -1,11 +1,14 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
 import com.example.jokesjavalibrary.*;
 
 import com.example.showjokeandroidlibrary.ShowJokeActivity;
@@ -18,7 +21,8 @@ import com.google.android.gms.ads.AdView;
  */
 public class MainActivityFragment extends Fragment {
 
-    public MainActivityFragment() { }
+    public MainActivityFragment() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,7 +43,15 @@ public class MainActivityFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String joke = new ProvidesJokes().getJoke();
-                ShowJokeActivity.startActivity(v.getContext(), joke);
+
+                EndpointsAsyncTask task = new EndpointsAsyncTask();
+                task.setContract(new EndpointsAsyncTask.CallbackAsyncTask() {
+                    @Override
+                    public void onPostExecute(String result) {
+                        ShowJokeActivity.startActivity(getActivity(), result);
+                    }
+                });
+                task.execute(new Pair<Context, String>(getActivity(), joke));
             }
         });
         return root;
