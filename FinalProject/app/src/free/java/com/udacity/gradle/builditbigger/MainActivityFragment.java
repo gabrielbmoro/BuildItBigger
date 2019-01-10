@@ -44,8 +44,6 @@ public class MainActivityFragment extends Fragment {
         btnTellJoke.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String joke = new ProvidesJokes().getJoke();
-
                 EndpointsAsyncTask task = new EndpointsAsyncTask();
                 task.setContract(new EndpointsAsyncTask.CallbackAsyncTask() {
                     @Override
@@ -53,7 +51,7 @@ public class MainActivityFragment extends Fragment {
                         ShowJokeActivity.startActivity(getActivity(), result);
                     }
                 });
-                task.execute(new Pair<Context, String>(getActivity(), joke));
+                task.execute();
             }
         });
 
