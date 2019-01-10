@@ -34,7 +34,7 @@
         <!-- Include the key to be used by Ads -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-8604814291061076~6016407965"/>
+            android:value="@string/ads_id"/>
     </application>
 
 </manifest>
