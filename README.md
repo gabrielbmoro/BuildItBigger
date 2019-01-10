@@ -9,3 +9,4 @@ In this project, I created an app with multiple flavors that uses multiple libra
 ![Exercise created by Udacity](https://github.com/gabrielbmoro/buildItBigger_udacitycourse/blob/master/img/architecture.png?raw=true)
 
 
+Please, see the latest version [here](https://github.com/gabrielbmoro/buildItBigger_udacitycourse/releases/tag/v1.0)
